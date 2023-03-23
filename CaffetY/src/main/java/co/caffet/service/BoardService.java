@@ -1,5 +1,6 @@
 package co.caffet.service;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import co.caffet.vo.BoardVO;
@@ -35,4 +36,8 @@ public interface BoardService {
 	public List<CommentVO> getComments(int commentNum);
 	
 	
+=======
+public interface BoardService {
+
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 }

@@ -164,6 +164,7 @@
 				
 					<form action="cafeAdd.do" enctype="multipart/form-data" method="post" >
 						<div class="row" >
+<<<<<<< HEAD
 						<h3><bold>카페 등록</bold></h3>	
 							<div class="col-6 mb-3">
 								<input type="text" class="form-control" placeholder="Cafe name" id = "cafeName"name="cafeName">
@@ -221,6 +222,65 @@
 		</div>
 	</div> <!-- /.untree_co-section -->
 
+=======
+						<h3><bold>글쓰기</bold></h3>
+							<div class="col-6 mb-3">
+								<input type="text" class="form-control" placeholder="Cafe name" id = "cafeName"name="cafeName">
+							</div>
+							<div class="col-6 mb-3">
+								<input type="text" class="form-control" placeholder="Cafe Tel" id="cafeTel" name="cafeTel">
+							</div>
+						<div class="col-6 mb-3">
+							<select class="form-control"   id="location" name="location">
+								<option value="null">선택</option>
+								<option value="남구">남구</option>
+								<option value="중구">중구</option>
+								<option value="수성구">수성구</option>
+								<option value="서구">서구</option>
+								<option value="동구">동구</option>
+								<option value="북구">북구</option>
+								<option value="달서구">달서구</option>
+								<option value="달서군">달서군</option>
+							</select>
+						</div>
+						
+
+						
+						<div class="col-12 mb-3">
+								<input type="text" class="form-control" placeholder="주소" id="cafeAddress" name="cafeAddress">
+							</div>
+							<div class="col-12 mb-3">
+								<input type="text" class="form-control" placeholder="홈페이지" id="cafeHomepage" name="cafeHomepage">
+							</div>
+							<div class="col-12 mb-3">
+								<textarea id="cafeWriting" name="cafeWriting"  cols="111" rows="10" class="textareainfo" placeholder="내용을 입력해주세요."></textarea>
+							</div>
+							<div class="col-12 mb-3">
+								<input type="file" class="form-control" placeholder="메인사진" id= "mainImg" name="mainImg">
+							</div>
+							<div class="col-12 mb-3">
+								<input type="file" class="form-control" placeholder="서브사진" id="subImg1" name="subImg1">
+							</div>
+							<div class="col-12 mb-3">
+								<input type="file" class="form-control" placeholder="서브사진" id="subImg2" name="subImg2">
+							</div>
+
+							<div class="col-12">
+								<input type="submit" value="Send Message" class="btn btn-primary">
+							</div>
+						</div>
+					</form>
+					
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div> <!-- /.untree_co-section -->
+
+<jsp:include page="../../layout/footer.jsp"></jsp:include>	
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 
 <script>
 

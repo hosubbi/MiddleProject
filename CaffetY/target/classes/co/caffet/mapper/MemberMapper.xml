@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.caffet.mapper.MemberMapper">
+	<select id = "login" parameterType = "co.caffet.vo.MemberVO" resultType="co.caffet.vo.MemberVO">
+		select * from member where member_id=#{memberId} and member_pw=#{memberPw}
+	</select>
+	
+	<insert id = "insertMember" parameterType = "co.caffet.vo.MemberVO" >
+		insert into member (member_name, member_id, member_pw,  member_age, member_gender, member_email, member_address, member_tel,member_auther)
+		values(#{memberName}, #{memberId}, #{memberPw},  #{memberAge}, #{memberGender}, #{memberEmail}, #{memberAddress}, #{memberTel}, #{memberAuther})
+	</insert>
+	
+	<select id = "selectMember"  parameterType = "String" resultType="MemberVO">
+		select * from member where member_id=#{member_id}
+	</select>
+	
+	<update id="modifyMember" parameterType = "co.caffet.vo.MemberVO">
+		update member
+		set member_name=#{memberName}, member_id=#{memberId}, member_pw=#{memberPw}, 
+		member_gender=#{memberGender}, member_email=#{memberEmail}, member_address=#{memberAddress}, member_tel=#{memberTel}, member_auther=#{memberAuther}
+		where member_id = #{memberId}
+	</update>
+</mapper>

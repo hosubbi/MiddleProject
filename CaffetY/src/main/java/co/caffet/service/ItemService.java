@@ -12,5 +12,23 @@ public interface ItemService {
 	
 	public ItemVO getItem(int itemNum);
 	
+<<<<<<< HEAD
 	public boolean addItem(ItemVO vo);
+=======
+	//추가
+	public boolean addItem(ItemVO vo);
+	
+	//수정
+	public boolean itemModify(ItemVO vo);
+	
+	//삭제
+	public int itemDelete(int itemNum);
+	
+	public List<ItemVO> foodTops();
+	
+	public List<ItemVO> foods();
+	
+	public List<ItemVO> etcTops();
+	
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 }

@@ -1,5 +1,6 @@
 package co.caffet.service;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,5 +24,13 @@ public class CommentsServiceMybatis implements CommentsService {
 		int r = mapper.addComments(cvo);
 		return r == 1;
 	}
+=======
+import org.apache.ibatis.session.SqlSession;
+
+import co.caffet.common.DataSource;
+
+public class CommentsServiceMybatis implements CommentsService{
+	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 
 }

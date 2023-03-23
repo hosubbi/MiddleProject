@@ -5,6 +5,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<dependencies>
+<<<<<<< HEAD
 		<!-- https://mvnrepository.com/artifact/org.webjars.bower/jquery -->
 		<dependency>
 		    <groupId>org.webjars.bower</groupId>
@@ -12,6 +13,8 @@
 		    <version>3.6.3</version>
 		</dependency>
 
+=======
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 		<!-- https://mvnrepository.com/artifact/servlets.com/cos -->
 		<dependency>
 			<groupId>servlets.com</groupId>

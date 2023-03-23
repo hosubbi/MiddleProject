@@ -5,6 +5,7 @@ import java.util.Date;
 import lombok.Data;
 @Data
 public class BoardVO {
+<<<<<<< HEAD
 	private int boardNum; //게시번호
 	private String boardDiv; //게시구분
 	
@@ -17,4 +18,12 @@ public class BoardVO {
 	private Date boardJoindate; //게시글등록일
 	private Date boardMdate; //게시글수정일
 	
+=======
+	private int boardNum;
+	private String boardDiv;
+	private String boardTitle;
+	private int boardCount;
+	private Date boardJoindate;
+	private Date boardMdate;
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 }

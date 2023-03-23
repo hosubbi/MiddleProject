@@ -34,5 +34,34 @@ public class ItemServiceMybatis implements ItemService{
 		int r = mapper.insertItem(vo);
 		return r == 1;
 	}
+<<<<<<< HEAD
+=======
+
+	@Override
+	public boolean itemModify(ItemVO vo) {
+		int r = mapper.updateItem(vo);
+		return r == 1;
+	}
+
+	@Override
+	public int itemDelete(int itemNum) {
+		return mapper.deleteItem(itemNum);
+	}
+
+	@Override
+	public List<ItemVO> foodTops() {
+		return mapper.foodTopList();
+	}
+
+	@Override
+	public List<ItemVO> foods() {
+		return mapper.foodList();
+	}
+
+	@Override
+	public List<ItemVO> etcTops() {
+		return mapper.etcTopList();
+	}
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 	
 }

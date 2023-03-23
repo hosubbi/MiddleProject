@@ -1,5 +1,6 @@
 package co.caffet.mapper;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import co.caffet.vo.BoardVO;
@@ -55,4 +56,8 @@ public interface BoardMapper {
 	
 	
 	
+=======
+public interface BoardMapper {
+
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 }

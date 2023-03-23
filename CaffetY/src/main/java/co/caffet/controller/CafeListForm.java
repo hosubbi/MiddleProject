@@ -15,9 +15,15 @@ public class CafeListForm implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
+<<<<<<< HEAD
 		String all = "all";
 		CafeService cafeList = new CafeServiceMybatis();
 		List<CafeVO> list = cafeList.cafeList(all);
+=======
+		
+		CafeService cafeList = new CafeServiceMybatis();
+		List<CafeVO> list = cafeList.cafeList();
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 		
 		request.setAttribute("list", list);
 		

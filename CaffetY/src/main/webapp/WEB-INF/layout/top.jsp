@@ -17,6 +17,7 @@
 	<div class="container">
 		<div class="menu-bg-wrap">
 			<div class="site-navigation">
+<<<<<<< HEAD
 				<a href="main.do" class="logo m-0 float-start">1조 No.1 Caffet</a>
 
 				<ul
@@ -33,6 +34,24 @@
 						<ul class="dropdown">
 							<li><a href="toy.do">장난감</a></li>
 							<li><a href="#">사료</a></li>
+=======
+				<a href="index.html" class="logo m-0 float-start">1조 No.1 Caffet</a>
+
+				<ul
+					class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+					<li class="active"><a href="main.do">Home</a></li>
+					<li class="has-children">
+						<a>게시판</a>
+						<ul class="dropdown">
+								<li><a href="boardPlayList.do">놀이터</a></li>
+								<li><a href="boardQnAList.do">QnA</a></li>
+							</ul>
+						<li class="has-children">
+					<li class="has-children"><a href="properties.html">펫 용품</a>
+						<ul class="dropdown">
+							<li><a href="toy.do">장난감</a></li>
+							<li><a href="dogfood.do">사료</a></li>
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 							<li><a href="#">기타..</a></li>
 							<li><a href="toyInsertForm.do">상품등록</a></li>
 							

@@ -20,6 +20,7 @@
 									<option name="all" disable selected hidden>상품종류 선택</option>
 									<option value="장난감">장난감</option>
 									<option value="사료">사료</option>
+<<<<<<< HEAD
 									<option value="그외">그 외 제품</option>
 								</select>
 							</div>
@@ -34,6 +35,30 @@
 								<textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="상품 내용"></textarea>
 							</div>
 							첨부파일<input type="file" name="attach">
+=======
+									<option value="기타">기타 제품</option>
+								</select>
+							</div>
+							<div class="col-12 mb-3">
+							<form>							
+									<h6>재고량 (최대9999) </h6><input type=number name="stock" value=1 min="1" max="9999">
+									<input type=button value="+" onClick="javascript:if((this.form.stock.value)<9999){this.form.stock.value++} ;">
+									<input type=button value="-" onClick="javascript:if((this.form.stock.value)>1){this.form.stock.value--} ;">								
+							</form>
+							</div>
+							<div class="col-12 mb-3">
+								<textarea name="content" id="" cols="30" rows="7" class="form-control" placeholder="상품 내용"></textarea>
+							</div>
+							<div class="col-12 mb-3">
+								<input type="file" class="form-control" placeholder="메인사진" id= "mainImg" name="mainImg">
+							</div>
+							<div class="col-12 mb-3">
+								<input type="file" class="form-control" placeholder="서브사진" id="subImg1" name="subImg1">
+							</div>
+							<div class="col-12 mb-3">
+								<input type="file" class="form-control" placeholder="서브사진" id="subImg2" name="subImg2">
+							</div>
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 							<div class="col-12">
 								<input type="submit" value="등록" class="btn btn-primary">
 							</div>

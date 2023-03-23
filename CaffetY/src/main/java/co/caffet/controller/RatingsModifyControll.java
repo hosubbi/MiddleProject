@@ -16,6 +16,7 @@ public class RatingsModifyControll implements Control {
 		String cafeNum = request.getParameter("cafeNum");
 		String loginId = request.getParameter("loginId");
 		CafeVO vo = new CafeVO();
+<<<<<<< HEAD
 		vo.setLikeit(Integer.parseInt(rating));
 		vo.setCafeNum(Integer.parseInt(cafeNum));
 		vo.setMemberId(loginId);
@@ -26,6 +27,18 @@ public class RatingsModifyControll implements Control {
 		cs.modifyRatings(vo);
 		
 		return "/cafeListForm.do";
+=======
+		System.out.println("---------------------------------------------------");
+		System.out.println(rating);
+		vo.setLikeit(Integer.parseInt(rating));
+		vo.setCafeNum(Integer.parseInt(cafeNum));
+		vo.setMemberId(loginId);
+		
+		CafeService cs = new CafeServiceMybatis();
+		cs.modifyRatings(vo);
+		
+		return "/cafeInfo.do";
+>>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 	}
 
 }
