@@ -1,6 +1,5 @@
 package co.caffet.service;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import co.caffet.vo.CommentVO;
@@ -14,8 +13,5 @@ public interface CommentsService {
 	
 	//댓글 수정
 	
-=======
-public interface CommentsService {
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 
 }

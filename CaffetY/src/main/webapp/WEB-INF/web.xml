@@ -21,10 +21,8 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-<<<<<<< HEAD
+
     <welcome-file>index.jsp</welcome-file>
-=======
-    <welcome-file>index.html</welcome-file>
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
+
   </welcome-file-list>
 </web-app>

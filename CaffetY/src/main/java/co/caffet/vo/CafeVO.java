@@ -8,11 +8,8 @@ public class CafeVO {
 	private int cafeNum;
 	private String cafeName;
 	private String cafeAddress; 
-<<<<<<< HEAD
 	private String cafeTel; 
-=======
-	private long cafeTel; 
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
+
 	private String cafeHomepage;
 	private String location;
 	private int cafeCount;

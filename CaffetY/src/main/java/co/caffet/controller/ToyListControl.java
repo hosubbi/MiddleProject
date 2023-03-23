@@ -4,10 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
-=======
-import javax.servlet.http.HttpSession;
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 
 import co.caffet.common.Control;
 import co.caffet.service.ItemService;

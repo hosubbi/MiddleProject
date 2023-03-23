@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
 
 <mapper namespace="co.caffet.mapper.BoardMapper">
 	<!-- 요청받아 실행할 기능의 쿼리 작성 -->
@@ -114,10 +113,4 @@
 
 
 
-=======
-<mapper namespace="co.caffet.mapper.BoardMapper">
-	<select id = "" parameterType = "">
-
-	</select>
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 </mapper>

@@ -12,9 +12,7 @@ public interface ItemService {
 	
 	public ItemVO getItem(int itemNum);
 	
-<<<<<<< HEAD
-	public boolean addItem(ItemVO vo);
-=======
+
 	//추가
 	public boolean addItem(ItemVO vo);
 	
@@ -30,5 +28,4 @@ public interface ItemService {
 	
 	public List<ItemVO> etcTops();
 	
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
 }

@@ -19,10 +19,7 @@ public class CafeInfo implements Control {
 		
 		CafeService cs = new CafeServiceMybatis();
 		CafeVO vo = cs.getCafe(Integer.parseInt(cafeNum));
-<<<<<<< HEAD
-		
-=======
->>>>>>> branch 'main' of https://github.com/hosubbi/MiddleProject.git
+
 		List<CafeVO> img = cs.getCafeImg(Integer.parseInt(cafeNum));
 		request.setAttribute("cafe", vo);
 		request.setAttribute("img", img);
