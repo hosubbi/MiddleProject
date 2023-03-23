@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="co.caffet.mapper.ItemMapper">
+
+  <!-- 장난감 top3 리스트 -->
+  <select id="itemTopList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+    <![CDATA[
+	select *
+	from (select item_num, item_name, item_price, item_stock, item_content, item_count, item_joindate, item_mdate, item_div, row_number() over (order by item_count desc) Rank
+	from item
+	where item_div = '장난감')
+	where rank <= 3
+	and item_count != 0
+	]]>
+  </select>
+  
+  <!-- 장난감 리스트 -->
+  <select id="itemList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+  	select * from item where item_div='장난감'
+  </select>
+  
+  
+  <select id="selectItem" resultType="ItemVO" parameterType = "int">
+  	select *
+	from item
+	where item_num = #{itemNum}
+  </select>
+  
+  <update id="updateItemCount" parameterType="int">
+	update item set
+	item_count = item_count +1
+	where item_num = #{item_num}
+  </update>
+  
+  <insert id="insertItem" parameterType="co.caffet.vo.ItemVO">
+	insert into item (item_num, item_name, item_price, item_stock, item_content, item_div)
+	values (item_seq.nextval,#{itemName}, #{itemPrice}, #{itemStock}, #{itemContent}, #{itemDiv})
+  </insert>
+  
+  <update id="updateItem" parameterType="co.caffet.vo.ItemVO">
+  	update item
+  	set item_name = #{itemName}, item_price = #{itemPrice}, item_stock = #{itemStock}, item_content = #{itemContent}, item_div = #{itemDiv}
+  	where item_num = #{itemNum}
+  </update>
+  
+  <delete id="deleteItem" parameterType="co.caffet.vo.ItemVO">
+  	delete from item where item_num = #{itemNum}
+  </delete>
+  
+    <!-- 사료 top3 리스트 -->
+  <select id="foodTopList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+    <![CDATA[
+	select *
+	from (select item_num, item_name, item_price, item_stock, item_content, item_count, item_joindate, item_mdate, item_div, row_number() over (order by item_count desc) Rank
+	from item
+	where item_div = '사료')
+	where rank <= 3
+	and item_count != 0
+	]]>
+  </select>
+  
+   <!-- 사료 리스트 -->
+  <select id="foodList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+  	select * from item where item_div='사료'
+  </select>
+  
+  <!-- 기타 top3 리스트 -->
+  <select id="etcList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+  <![CDATA[
+	select *
+	from (select item_num, item_name, item_price, item_stock, item_content, item_count, item_joindate, item_mdate, item_div, row_number() over (order by item_count desc) Rank
+	from item
+	where item_div = '기타')
+	where rank <= 3
+	and item_count != 0
+	]]>
+  </select>
+</mapper>
