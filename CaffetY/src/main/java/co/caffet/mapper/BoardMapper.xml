@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.caffet.mapper.BoardMapper">
+	<!-- 요청받아 실행할 기능의 쿼리 작성 -->
+
+	<!-- 게시글목록 (구분해서) -->
+	<select id="boardList" parameterType="co.caffet.vo.BoardVO"
+		resultType="BoardVO">
+		select * from board where board_div = #{boardDiv} <!-- 기존에서 where절 추가 -->
+	</select>
+
+	<!-- 놀이터게시글목록 페이징처리 -->
+	<select id="boardListWithPaging"
+		resultType="co.caffet.vo.BoardVO" parameterType="int">
+      <![CDATA[
+      select board_num,board_div,board_title,board_content,member_id,board_count,board_joindate,board_mdate,boardimg_name
+      from (select rownum rn, board_num,board_div,board_title,board_content,member_id,board_count,board_joindate,board_mdate,boardimg_name
+          from (select board_num,board_div,board_title,board_content,member_id,board_count,board_joindate,board_mdate,boardimg_name
+                from board
+                where board_div = 'play'
+                order by board_num desc) a
+          where rownum <= (#{page} * 8) ) b
+      where b.rn > (#{page} - 1) * 8
+      ]]>
+	</select>
+
+	<!-- 게시글 전체수 -->
+	<select id="getTotalCount" resultType="int">
+		select count(*) from board
+	</select>
+
+
+	<!--놀이터게시글 목록보기 -->
+	<select id="searchBoard" resultType="BoardVO"
+		parameterType="int">
+		select * from board
+		where board_num = #{boardNum}
+	</select>
+
+
+	<!-- 놀이터게시글 조회수갱신 -->
+	<update id="boardPlayCount" parameterType="int">
+		update board set board_count = board_count + 1
+		where board_num = #{boardNum}
+	</update>
+
+	<!--놀이터게시글등록 -->
+	<update id="addBoardPlay" parameterType="co.caffet.vo.BoardVO">
+		insert into
+		board(board_num,board_div,board_title,board_content,member_id,board_joindate,board_mdate,board_count)
+		values
+		(board_num.nextval,#{boardDiv},#{boardTitle},#{boardContent},#{memberId},sysdate,sysdate,0)
+	</update>
+
+
+	<!--놀이터게시글수정 -->
+	<update id="modifyBoard" parameterType="co.caffet.vo.BoardVO">
+		update board
+		set   board_title=#{boardTitle},board_content=#{boardContent}
+		where board_num = #{boardNum}
+	</update>
+
+	<!--놀이터게시글삭제 -->
+	<delete id="removeBoard" parameterType="co.caffet.vo.BoardVO" >
+	delete board where board_num=#{boardNum}
+	</delete>
+	
+	
+	
+
+	<!-- QnA게시글목록 페이징처리 -->
+
+	<select id="qnaListWithPaging" resultType="co.caffet.vo.BoardVO"
+		parameterType="int">
+      <![CDATA[
+      select board_num,board_div,board_title,board_content,member_id,board_count,board_joindate,board_mdate,boardimg_name
+      from (select rownum rn, board_num,board_div,board_title,board_content,member_id,board_count,board_joindate,board_mdate,boardimg_name
+          from (select board_num,board_div,board_title,board_content,member_id,board_count,board_joindate,board_mdate,boardimg_name
+                from board
+                where board_div = 'QnA'
+                order by board_num desc) a
+          where rownum <= (#{page} * 8) ) b
+      where b.rn > (#{page} - 1) * 8
+      ]]>
+	</select>
+
+	<!--QnA게시글보기 -->
+	<select id="searchQnA" resultType="BoardVO" parameterType="int">
+		select * from board
+		where board_num = #{board_num}
+	</select>
+
+	<!--QnA게시글등록 -->
+	<update id="addBoardQnA" parameterType="co.caffet.vo.BoardVO">
+		insert into
+		board(board_num,board_div,board_title,board_content,member_id,board_joindate,board_mdate,board_count)
+		values
+		(board_num.nextval,#{boardDiv},#{boardTitle},#{boardContent},#{memberId},sysdate,sysdate,0)
+	</update>
+
+	<!--QnA게시글수정 -->
+
+	<!--QnA게시글삭제 -->
+
+
+
+
+
+
+
+
+
+</mapper>

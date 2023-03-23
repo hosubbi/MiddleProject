@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="co.caffet.mapper.ItemMapper">
+  <select id="itemTopList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+    <![CDATA[
+    select *
+	from (select item_num, item_name, item_price, item_stock, item_content, item_count, item_joindate, item_mdate, item_div, row_number() over (order by item_count desc) Rank
+	from item)
+	where rank <= 3
+	and item_count != 0
+	]]>
+  </select>
+  
+  <select id="itemList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+  	select * from item
+  </select>
+  
+  <select id="selectItem" resultType="ItemVO" parameterType = "int">
+  	select *
+	from item
+	where item_num = #{itemNum}
+  </select>
+  
+  <update id="updateItemCount" parameterType="int">
+	update item set
+	item_count = item_count +1
+	where item_num = #{item_num}
+  </update>
+  
+  <insert id="insertItem" parameterType="co.caffet.vo.ItemVO">
+	insert into item (item_num, item_name, item_price, item_stock, item_content, item_div)
+	values (item_seq.nextval,#{itemName}, #{itemPrice}, #{itemStock}, #{itemContent}, #{itemDiv})
+  </insert>
+  
+  
+  
+</mapper>

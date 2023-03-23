@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.caffet.mapper.CafeMapper">
+<select id ="checkRatings" parameterType = "CafeVO" >
+select * from ratings
+where cafe_num = #{cafeNum} and member_id = #{memberId}
+
+</select>
+
+<update id="updateCafe" parameterType="CafeVO">
+	update cafe set cafe_name = #{cafeName},
+					cafe_tel = #{cafeTel},
+					location = #{location},
+					cafe_address = #{cafeAddress},
+					cafe_homepage =#{cafeHomepage},
+					cafe_writing = #{cafeWriting}
+	where cafe_num =#{cafeNum}
+	
+
+</update>
+<!-- 이용자 별점 주기  이용자 별점 내기 -->
+<insert id="RatingsInsert" parameterType = "co.caffet.vo.CafeVO">
+insert into ratings
+(CAFE_NUM,
+MEMBER_ID,
+LIKEIT)
+values (#{cafeNum}, #{memberId}, #{likeit})
+</insert>
+
+<!-- 카페 추가 기본 별점  -->
+<insert id="insertRatings" parameterType = "int">
+insert into ratings
+(CAFE_NUM,
+MEMBER_ID,
+LIKEIT)
+values (#{cafeNum}, 'manager', 5)
+
+</insert>
+
+
+<insert id = "insertCafeImg" parameterType = "co.caffet.vo.CafeVO">
+	insert into cafeimg (cafeimg_num, cafe_num, cafeimg_route,cafeimg_joindate)
+	values (cafeimg_seq.nextval, #{cafeNum}, #{cafeimgRoute}, sysdate)
+
+</insert>
+
+
+<select id="selectCafeNum" resultType = "CafeVO">
+	select a.cafe_num from cafe a
+	where cafe_num = (select max(cafe_num) from cafe b)
+</select>
+
+<insert id ="insertCafe" parameterType="co.caffet.vo.CafeVO">
+insert into cafe (member_id, cafe_num, cafe_name, cafe_address, cafe_tel, cafe_homepage, cafe_bnum, location, cafe_writing,cafe_count)
+values(#{memberId}, cafe_seq.nextval, #{cafeName}, #{cafeAddress}, #{cafeTel}, #{cafeHomepage}, 11111,#{location}, #{cafeWriting},0)
+</insert>
+
+	<select id="selectCafeList" parameterType="co.caffet.vo.CafeVO" resultType="CafeVO">
+		<![CDATA[
+select aa.location, aa.cafe_address, aa.cafe_num, aa.cafeimg_num, aa.cafe_name, aa.cafeimg_route, bb.avg, aa.cafe_tel, aa.cafe_homepage from
+(SELECT
+cafe_num, cafeimg_num, cafe_name, cafeimg_route, cafe_address,cafe_homepage, avg, cafe_tel, location
+FROM
+(
+    SELECT 
+    B.cafe_address,
+    A.cafe_num,
+    A.cafeimg_num,
+    B.cafe_name,
+    A.cafeimg_route,
+    B.cafe_tel,
+    B.cafe_homepage,
+    B.location,
+    0 avg,
+    RANK() OVER (PARTITION BY A.cafe_num
+    ORDER BY A.cafeimg_num) AS RANKING --그룹별 순위
+    FROM
+    cafeimg A
+    INNER JOIN cafe B ON A.cafe_num = B.cafe_num)
+WHERE RANKING = 1 ) aa,
+(select cafe_num, avg(likeit) avg
+from ratings
+group by cafe_num
+order by cafe_num) bb
+where aa.cafe_num(+) = bb.cafe_num
+and location = #{all}
+	]]>
+	
+	</select>
+
+
+	<select id="cafeList" parameterType="co.caffet.vo.CafeVO" resultType="CafeVO">
+	<![CDATA[
+select aa.cafe_address, aa.cafe_num, aa.cafeimg_num, aa.cafe_name, aa.cafeimg_route, bb.avg, aa.cafe_tel, aa.cafe_homepage from
+(SELECT
+cafe_num, cafeimg_num, cafe_name, cafeimg_route, cafe_address,cafe_homepage, avg, cafe_tel
+FROM
+(
+    SELECT 
+    B.cafe_address,
+    A.cafe_num,
+    A.cafeimg_num,
+    B.cafe_name,
+    A.cafeimg_route,
+    B.cafe_tel,
+    B.cafe_homepage,
+    0 avg,
+    RANK() OVER (PARTITION BY A.cafe_num
+    ORDER BY A.cafeimg_num) AS RANKING --그룹별 순위
+    FROM
+    cafeimg A
+    INNER JOIN cafe B ON A.cafe_num = B.cafe_num)
+WHERE RANKING = 1 ) aa,
+(select cafe_num, avg(likeit) avg
+from ratings
+group by cafe_num
+order by cafe_num) bb
+where aa.cafe_num(+) = bb.cafe_num
+	]]>
+	</select>
+	<select id="selectCafeImg" parameterType="co.caffet.vo.CafeVO" resultType="CafeVO">
+		select cafeimg_route from cafeimg where cafe_num = #{cafe_num}
+	</select>
+	
+	<select id="selectCafe" resultType="CafeVO" parameterType="int">
+
+
+		select A.cafe_num, cafe_address, cafe_tel, cafe_homepage, cafe_count,
+		avg, cafe_name
+		from cafe A join
+		(select cafe_num, avg(likeit) avg
+		from ratings
+		group by cafe_num) B
+		on A.cafe_num = B.cafe_num
+		where A.cafe_num = #{cafeNum}
+	</select>
+	
+	<select id="selectModifyCafe" resultType="CafeVO" parameterType="int">
+		select * from cafe where cafe_num=#{num}
+	</select>
+
+	<update id="updateCount" parameterType="int">
+		update cafe set
+		cafe_count = cafe_count +1
+		where cafe_num = #{cafe_num}
+	</update>
+	
+</mapper>
