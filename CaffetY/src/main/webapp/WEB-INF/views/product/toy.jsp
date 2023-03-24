@@ -36,7 +36,7 @@
 							
 <%------------------------------페이지------------------------------%>						 
 						 <c:forEach var="topList" items="${topList }">
-							<div class="property-item">
+							<div class="property-item" style="float:left;">
 
 								<a onclick="location.href='toyInfo.do?itemNum=${topList.itemNum}'" style="cursor: pointer;" class="img">
 									<img src="images/${topList.itemName}1.jpg" alt="Image" class="img-fluid">

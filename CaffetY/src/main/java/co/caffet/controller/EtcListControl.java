@@ -20,8 +20,8 @@ public class EtcListControl implements Control {
 		List<ItemVO> etcTopList =  service.etcTops();
 		request.setAttribute("etcTopList", etcTopList);
 		
-		List<ItemVO> foodList = service.foods();
-		request.setAttribute("foodList", foodList);
+		List<ItemVO> etcList = service.etcs();
+		request.setAttribute("etcList", etcList);
 		
 		return "product/etc.tiles";
 	}

@@ -28,4 +28,5 @@ public interface ItemService {
 	
 	public List<ItemVO> etcTops();
 	
+	public List<ItemVO> etcs();
 }

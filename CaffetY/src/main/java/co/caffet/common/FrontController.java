@@ -52,6 +52,7 @@ import co.caffet.controller.OdrDetailControl;
 import co.caffet.controller.OdrDetailFormControl;
 import co.caffet.controller.OrderlistControl;
 import co.caffet.controller.RatingsModifyControll;
+import co.caffet.controller.RemoveCafeControl;
 import co.caffet.controller.ReservelistControl;
 import co.caffet.controller.SearchCafeControl;
 import co.caffet.controller.ToyListControl;
@@ -77,7 +78,11 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyMember.do", new ModifymemberControl());
 		map.put("/modifyMemberForm.do", new ModifyMemberFormControl());
 		map.put("/deleteMember.do", new DeleteMemberControl());
-		
+
+		map.put("/orderList.do", new OrderlistControl());
+		map.put("/reserveList.do", new ReservelistControl());
+		map.put("/removoeCafe.do", new RemoveCafeControl());
+
 
 		// order
 		map.put("/orderList.do", new OrderlistControl());
@@ -97,7 +102,9 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyCafe.do", new ModifyCafeControl());
 		map.put("/cafeModify.do", new CafeModifyControl());
 
-		// product
+
+		
+		//product
 		map.put("/notice.do", new NoticeControl());
 		map.put("/toy.do", new ToyListControl());
 		map.put("/toyInfo.do", new ItemInfoControl());
@@ -109,7 +116,7 @@ public class FrontController extends HttpServlet {
 		map.put("/dogfood.do", new FoodListControl());
 		map.put("/etc.do", new EtcListControl());
 
-		// board
+		//board
 		map.put("/boardPlayList.do", new BoardPlayListControl());
 		// 게시글보는화면
 		map.put("/boardPlayView.do", new BoardPlayView());

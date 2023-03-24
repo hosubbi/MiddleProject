@@ -1,6 +1,7 @@
 package co.caffet.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +21,10 @@ public class CafeModifyControl implements Control {
 		
 
 		String dir = request.getServletContext().getRealPath("imgupload");
-
 		System.out.println("dir: " + dir);
 		int maxSize = 5 * 1024 * 1024;
 		String enc = "UTF-8";
+		
 		
 		try {
 			MultipartRequest multi = new MultipartRequest(request, dir, maxSize, enc, new DefaultFileRenamePolicy());
@@ -31,39 +32,62 @@ public class CafeModifyControl implements Control {
 			
 			CafeService cs = new CafeServiceMybatis();
 			CafeVO vo = new CafeVO();
-			vo.setCafeNum(Integer.parseInt(request.getParameter("cafeNum")));
-			vo.setCafeName(request.getParameter("cafeName"));
-			vo.setCafeAddress(request.getParameter("cafeAddress"));
-			vo.setLocation(request.getParameter("location"));
-			vo.setCafeTel(request.getParameter("cafeTel"));
-			vo.setCafeHomepage(request.getParameter("cafeHomepage"));
-			vo.setCafeWriting(request.getParameter("cafeWriting"));
-			System.out.println(vo);
-			
+			vo.setCafeNum(Integer.parseInt(multi.getParameter("cafeNum")));
+			vo.setCafeName(multi.getParameter("cafeName"));
+			vo.setCafeAddress(multi.getParameter("cafeAddress"));
+			vo.setLocation(multi.getParameter("location"));
+			vo.setCafeTel(multi.getParameter("cafeTel"));
+			vo.setCafeHomepage(multi.getParameter("cafeHomepage"));
+			vo.setCafeWriting(multi.getParameter("cafeWriting"));
+			// 카페 정보 등록
 			cs.modifyCafe(vo);
+
+			// 카페 번호 찾기
+			CafeVO imgVo = new CafeVO();
+			List<CafeVO> imgList = cs.imgSearch(vo.getCafeNum());
 			
 			
-			System.out.println(vo);		
-			CafeVO cafeNum = cs.cafeSearch();
+			for(int i=0 ; i<imgList.size(); i++) {
+			 imgVo = imgList.get(i);
+			 System.out.println("-------------------------------");
+			 System.out.println(imgVo);
+			 
+			 
+			 if (multi.getFilesystemName("img"+i) != null) {
+					cs.modifyImgDelete(imgVo.getCafeimgNum());
+					
+					vo.setCafeNum(imgVo.getCafeNum());
+					vo.setCafeimgNum(imgVo.getCafeimgNum());
+					vo.setCafeimgRoute(multi.getFilesystemName("img"+i));
+					cs.modifyCafeImg(vo);
+				}
+				
+//				
+//				if (multi.getFilesystemName("subImg1") != null) {
+//					cs.modifyImgDelete(imgVo.getCafeimgNum());
+//					
+//					vo.setCafeNum(imgVo.getCafeNum());
+//					vo.setCafeimgNum(imgVo.getCafeimgNum());
+//					vo.setCafeimgRoute(multi.getFilesystemName("subImg1"));
+//					cs.modifyCafeImg(vo);
+//				}
+//				if (multi.getFilesystemName("subImg2") != null) {
+//					cs.modifyImgDelete(imgVo.getCafeimgNum());
+//					
+//					vo.setCafeNum(imgVo.getCafeNum());
+//					vo.setCafeimgNum(imgVo.getCafeimgNum());
+//					vo.setCafeimgRoute(multi.getFilesystemName("subImg2"));
+//					cs.modifyCafeImg(vo);
+//				}
+			}
 			
-			cs.firstRatings(cafeNum.getCafeNum());
 			
+			
+
 			//이미저장
-			if (multi.getFilesystemName("mainImg") != null) {
-				vo.setCafeNum(cafeNum.getCafeNum());
-				vo.setCafeimgRoute(multi.getFilesystemName("mainImg"));
-				cs.addCafeImg(vo);
-			}
-			if (multi.getFilesystemName("subImg1") != null) {
-				vo.setCafeNum(cafeNum.getCafeNum());
-				vo.setCafeimgRoute(multi.getFilesystemName("subImg1"));
-				cs.addCafeImg(vo);
-			}
-			if (multi.getFilesystemName("subImg2") != null) {
-				vo.setCafeNum(cafeNum.getCafeNum());
-				vo.setCafeimgRoute(multi.getFilesystemName("subImg2"));
-				cs.addCafeImg(vo);
-			}
+			
+			return "cafeInfo.do?cafeNum="+Integer.parseInt(multi.getParameter("cafeNum"));
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,8 +95,7 @@ public class CafeModifyControl implements Control {
 
 		
 		
-		//return "cafeInfo.do?cafeNum="+ Integer.parseInt(request.getParameter("cafeNum"));
-		return "cafeInfo.do?cafeNum="+Integer.parseInt(request.getParameter("cafeNum"));
+		return "cafeInfo.do";
 	}
 
 }

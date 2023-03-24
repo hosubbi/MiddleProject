@@ -2,6 +2,18 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<style>
+	button {
+	  background-color: #04AA6D;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  cursor: pointer;
+	  width: 70;
+	}
+
+</style>
 
 <body onload="init();">
 	<div class="section">
@@ -63,11 +75,8 @@
   var sell_price;
   var amount;
   var maxAmount
-
-
   // init 초기값을 지정할 수 있다.
   function init () {
-
 	
     sell_price = document.form.sell_price.value;
     amount = document.form.amount.value;
@@ -75,8 +84,6 @@
     document.form.sum.value = sell_price;
     change();
   }
-
-
     // add
   // howmany 값을 1 증가 시키고, 합계를 계산.
   function add () {
@@ -106,19 +113,12 @@
   		sum.value = parseInt(max.value) * sell_price;
   	}
   } */
-
     // del
-
     // howmany 값을 1 감소 시키고, 합계를 계산.
-
     function minus () {
-
     hm = document.form.amount;
-
     sum = document.form.sum;
-
    
-
 	    // 에러 처리 : 음수 값
 	
 	    if (hm.value > 1) {
@@ -130,14 +130,9 @@
 	    }
     	
     }
-
-
     function change () {
-
     hm = document.form.amount;
-
     sum = document.form.sum;
-
     let a = parseInt(document.form.maxAmount.value,10)
 	
 	    if (hm.value < 0) {
@@ -145,7 +140,6 @@
 	      hm.value = 0;
 	
 	    }
-
     sum.value = parseInt(hm.value) * sell_price;
     
 	    if(hm.value >= a){
@@ -154,8 +148,4 @@
 	    }
     }
     
-
-
-
-
 </script>

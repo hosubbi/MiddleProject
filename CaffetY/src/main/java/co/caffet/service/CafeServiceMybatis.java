@@ -68,5 +68,29 @@ public class CafeServiceMybatis implements CafeService{
 		mapper.insertRatings(cafeNum);
 
 	}
+	@Override
+	public List<CafeVO> imgSearch(int cafeNum) {
+		// TODO Auto-generated method stub
+		return mapper.searchCafeImg(cafeNum);
+		
+		
+		
+		
+	}
+	@Override
+	public void modifyImgDelete(int cafeimgNum) {
+		mapper.updateCafeImgDelete(cafeimgNum);
+	}
+	@Override
+	public void modifyCafeImg(CafeVO vo) {
+		mapper.updateCafeImg(vo);;
+	}
+	@Override
+	public void removeCafe(int cafeNum) {
+		mapper.deleteRatings(cafeNum);
+		mapper.deleteCafeImg(cafeNum);
+
+		mapper.deleteCafe(cafeNum);
+	}
 
 }

@@ -3,6 +3,32 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.caffet.mapper.CafeMapper">
+<delete id="deleteRatings" parameterType ="int">
+	delete from ratings where cafe_num = #{cafeNum}
+</delete>
+<delete id="deleteCafeImg" parameterType ="int">
+	delete from cafeimg where cafe_num = #{cafeNum}
+</delete>
+<delete id="deleteCafe" parameterType ="int">
+	delete from cafe where cafe_num = #{cafeNum}
+</delete>
+
+
+<insert id = "updateCafeImg" parameterType = "co.caffet.vo.CafeVO">
+	insert into cafeimg (cafeimg_num, cafe_num, cafeimg_route, cafeimg_mdate)
+	values (#{cafeimgNum}, #{cafeNum}, #{cafeimgRoute}, sysdate)
+
+</insert>
+
+<select id= "searchCafeImg" parameterType = "CafeVO">
+	select * from cafeimg where cafe_num = #{cafeNum} order by cafeimg_num
+
+</select>
+
+<select id="updateCafeImgDelete" parameterType = "CafeVO">
+delete from cafeimg where cafeimg_num = #{cafeimgNum}
+	
+</select>
 
 <select id ="checkRatings" parameterType = "CafeVO" >
 select * from ratings
@@ -42,7 +68,7 @@ values (#{cafeNum}, 'manager', 5)
 
 
 <insert id = "insertCafeImg" parameterType = "co.caffet.vo.CafeVO">
-	insert into cafeimg (cafeimg_num, cafe_num, cafeimg_route,cafeimg_joindate)
+	insert into cafeimg (cafeimg_num, cafe_num, cafeimg_route, cafeimg_joindate)
 	values (cafeimg_seq.nextval, #{cafeNum}, #{cafeimgRoute}, sysdate)
 
 </insert>
@@ -121,14 +147,13 @@ order by cafe_num) bb
 where aa.cafe_num(+) = bb.cafe_num
 	]]>
 	</select>
+	
 	<select id="selectCafeImg" parameterType="co.caffet.vo.CafeVO" resultType="CafeVO">
 		select cafeimg_route from cafeimg where cafe_num = #{cafe_num}
 	</select>
 	
 	<select id="selectCafe" resultType="CafeVO" parameterType="int">
-
-
-		select A.cafe_num, cafe_address, cafe_tel, cafe_homepage, cafe_count,
+		select A.cafe_num, cafe_address, cafe_tel, cafe_homepage, cafe_count, member_id,
 		avg, cafe_name
 		from cafe A join
 		(select cafe_num, avg(likeit) avg

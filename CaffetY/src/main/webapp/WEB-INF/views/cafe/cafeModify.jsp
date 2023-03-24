@@ -162,7 +162,7 @@
 				
 				
 					
-					<form action="cafeModify.do" enctype="multipart/form-data" >
+					<form action="cafeModify.do" enctype="multipart/form-data" id="modiFrm">
 						<div class="row" >
 						<h3><bold>카페 수정</bold></h3>
 						   <!--  --> <input type="hidden" class="form-control" placeholder="Cafe name" id = "cafeNum"name="cafeNum" value="${cafe.cafeNum }" >
@@ -199,18 +199,18 @@
 								<textarea id="cafeWriting" name="cafeWriting"  cols="111" rows="10" class="textareainfo">${cafe.cafeWriting }</textarea>
 							</div>
 							<div class="col-12 mb-3">
-								<input type="file" class="form-control" placeholder="추가사진" id= "mainImg" name="mainImg">
+								<input type="file" class="form-control" placeholder="추가사진" id= "img0" name="img0">
 							</div>
 							<div class="col-12 mb-3">
-								<input type="file" class="form-control" placeholder="추가사진" id="subImg1" name="subImg1">
+								<input type="file" class="form-control" placeholder="추가사진" id="img1" name="img1">
 							</div>
 							<div class="col-12 mb-3">
-								<input type="file" class="form-control" placeholder="추가사진" id="subImg2" name="subImg2">
+								<input type="file" class="form-control" placeholder="추가사진" id="img2" name="img2">
 							</div>
 
 							<div class="col-12">
 								<input type="submit" id = "submit"value="수정" class="btn btn-primary" >
-								<input type="submit" value="삭제" class="btn btn-primary" >
+								<input type="submit" id = "delBtn" value="삭제" class="btn btn-primary" >
 								
 							</div>
 						</div>
@@ -226,24 +226,12 @@
 
 
 <script>
-document.querySelector('#submit').addEventListener('click', function() {
-    let myFrm = document.querySelector('#myFrm');
-    
-    let iName = document.querySelector('input[name="name"]').value;
-    let iPrice = document.querySelector('input[name="price"]').value;
-    let iDiv = document.querySelector('input[name="div"]').value;
-    let iStock = document.querySelector('input[name="stock"]').value;
-    let iContent = document.querySelector('textarea[name="content"]').textContent;
-    
-    myFrm.action = 'itemModify.do'; 
-    
-    myFrm.append(document.querySelector('input[name="name"]'));
-    myFrm.append(document.querySelector('input[name="price"]'));
-    myFrm.append(document.querySelector('input[name="div"]'));
-    myFrm.append(document.querySelector('input[name="stock"]'));
-    myFrm.append(document.querySelector('textarea[name="content"]'));
-     
-    myFrm.submit();
-	 });
+document.querySelector('#delBtn').addEventListener('click', function(){
+	  let myFrm = document.querySelector('#modiFrm');
+	  myFrm.action = 'removoeCafe.do';
+	  myFrm.document.querySelector('input[name="cafeNum"]');
+	  myFrm.submit();
+
+});
 </script>
 

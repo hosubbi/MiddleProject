@@ -41,9 +41,8 @@
 					<li class="has-children"><a href="properties.html">펫 용품</a>
 						<ul class="dropdown">
 							<li><a href="toy.do">장난감</a></li>
-							<li><a href="#">사료</a></li>
-
-							<li><a href="#">기타..</a></li>
+							<li><a href="dogfood.do">사료</a></li>
+							<li><a href="etc.do">기타..</a></li>
 							<li><a href="toyInsertForm.do">상품등록</a></li>
 							
 							<c:choose>
