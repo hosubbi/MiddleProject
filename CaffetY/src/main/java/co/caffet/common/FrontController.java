@@ -50,6 +50,7 @@ import co.caffet.controller.MypageControl;
 import co.caffet.controller.NoticeControl;
 import co.caffet.controller.OrderlistControl;
 import co.caffet.controller.RatingsModifyControll;
+import co.caffet.controller.RemoveCafeControl;
 import co.caffet.controller.ReservelistControl;
 import co.caffet.controller.SearchCafeControl;
 import co.caffet.controller.ToyListControl;
@@ -78,6 +79,7 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteMember.do", new DeleteMemberControl());
 		map.put("/orderList.do", new OrderlistControl());
 		map.put("/reserveList.do", new ReservelistControl());
+		map.put("/removoeCafe.do", new RemoveCafeControl());
 		
 		//cafe
 		map.put("/searchCafe.do", new SearchCafeControl());
@@ -88,6 +90,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ratingsModify.do", new RatingsModifyControll());
 		map.put("/modifyCafe.do", new ModifyCafeControl());
 		map.put("/cafeModify.do", new CafeModifyControl());
+
 		
 		//product
 		map.put("/notice.do", new NoticeControl());

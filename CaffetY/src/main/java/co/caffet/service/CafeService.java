@@ -29,5 +29,13 @@ public interface CafeService {
 
 	public void firstRatings(int cafeNum);
 
+	public List<CafeVO> imgSearch(int cafeNum);
+
+	public void modifyImgDelete(int cafeimgNum);
+
+	public void modifyCafeImg(CafeVO vo);
+
+	public void removeCafe(int cafeNum);
+
 
 }
