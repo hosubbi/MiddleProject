@@ -27,6 +27,7 @@ public interface ItemMapper {
 	public List<ItemVO> foodList();
 	
 	public List<ItemVO> etcTopList();
-
+	
+	public List<ItemVO> etcList();
 	
 }

@@ -35,7 +35,7 @@
 							
 <%------------------------------페이지------------------------------%>						 
 						 <c:forEach var="etcTopList" items="${etcTopList }">
-							<div class="property-item">
+							<div class="property-item" style="float:left;">
 
 								<a onclick="location.href='toyInfo.do?itemNum=${etcTopList.itemNum}'" style="cursor: pointer;" class="img">
 									<img src="images/${etcTopList.itemName}1.jpg" alt="Image" class="img-fluid">
@@ -76,7 +76,7 @@
 
 	<div class="row mb-5 align-items-center">
 				<div class="col-lg-6 text-center mx-auto">
-					<h2 class="font-weight-bold text-primary heading">장난감 전체</h2>
+					<h2 class="font-weight-bold text-primary heading">기타용품 전체</h2>
 				</div>			
 	</div>
 	<div class="section section-properties">
@@ -84,35 +84,35 @@
 			<div class="row">
 				
 				<%--------시작------%>
-				<c:forEach var="list" items="${list }">
+				<c:forEach var="etcList" items="${etcList }">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">	
 									
 									
 									
 					<div class="property-item mb-30">
 
-						<a onclick="location.href='toyInfo.do?itemNum=${list.itemNum}'" style="cursor: pointer;" class="img">
-							<img src="images/${list.itemName}1.jpg" alt="Image" class="img-fluid">
+						<a onclick="location.href='toyInfo.do?itemNum=${etcList.itemNum}'" style="cursor: pointer;" class="img">
+							<img src="images/${etcList.itemName}1.jpg" alt="Image" class="img-fluid">
 						</a>
 
 						<div class="property-content">
-							<div class="price mb-2"><span>${list.itemName}</span></div>
+							<div class="price mb-2"><span>${etcList.itemName}</span></div>
 							<div>
-								<span class="city d-block mb-3"><fmt:formatNumber value="${list.itemPrice }" pattern="#,### 원" /></span>
+								<span class="city d-block mb-3"><fmt:formatNumber value="${etcList.itemPrice }" pattern="#,### 원" /></span>
 
 								<div class="specs d-flex mb-4">
 									<span class="d-block d-flex align-items-center me-3">
 										<span class="icon-bed me-2"></span>
-										<span class="caption" style="fontsize=20px;">조회수 ${list.itemCount }</span>
+										<span class="caption" style="fontsize=20px;">조회수 ${etcList.itemCount }</span>
 									</span>
 									<span class="d-block d-flex align-items-center">
 										<span class="icon-bath me-2"></span>
-										<span class="caption">등록일 <fmt:formatDate value="${list.itemJoindate }" pattern="yyyy-MM-dd"/></span>
+										<span class="caption">등록일 <fmt:formatDate value="${etcList.itemJoindate }" pattern="yyyy-MM-dd"/></span>
 									</span>
 								</div>
 
-								<a onclick="location.href='toyInfo.do?itemNum=${list.itemNum}'" style="background:rgb(108, 151, 243);" class="btn btn-primary py-2 px-3">상세보기</a>
-								<a onclick="location.href='itemModifyForm.do?itemNum=${list.itemNum}'" style="background:rgb(146, 188, 243);" class="btn btn-primary py-2 px-3">수정하기</a>
+								<a onclick="location.href='toyInfo.do?itemNum=${etcList.itemNum}'" style="background:rgb(108, 151, 243);" class="btn btn-primary py-2 px-3">상세보기</a>
+								<a onclick="location.href='itemModifyForm.do?itemNum=${etcList.itemNum}'" style="background:rgb(146, 188, 243);" class="btn btn-primary py-2 px-3">수정하기</a>
 							</div>
 						</div>
 					</div> <!-- .item -->
