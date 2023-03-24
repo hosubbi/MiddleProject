@@ -104,7 +104,6 @@ public class FrontController extends HttpServlet {
 		map.put("/dogfood.do", new FoodListControl());
 		map.put("/etc.do", new EtcListControl());
 		
-		
 		//board
 		map.put("/boardPlayList.do", new BoardPlayListControl());
 		// 게시글보는화면
