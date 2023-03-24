@@ -68,8 +68,9 @@
   	select * from item where item_div='사료'
   </select>
   
+  
   <!-- 기타 top3 리스트 -->
-  <select id="etcList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+  <select id="etcTopList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
   <![CDATA[
 	select *
 	from (select item_num, item_name, item_price, item_stock, item_content, item_count, item_joindate, item_mdate, item_div, row_number() over (order by item_count desc) Rank
@@ -78,6 +79,11 @@
 	where rank <= 3
 	and item_count != 0
 	]]>
+  </select>
+  
+  <!-- 기타 리스트 -->
+  <select id="etcList" parameterType = "co.caffet.vo.ItemVO" resultType="ItemVO">
+  	select * from item where item_div='기타'
   </select>
 
 </mapper>

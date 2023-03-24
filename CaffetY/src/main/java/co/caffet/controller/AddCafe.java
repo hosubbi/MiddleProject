@@ -45,29 +45,32 @@ public class AddCafe implements Control {
 			System.out.println(vo);
 			CafeVO cafeNum = cs.cafeSearch();
 			cs.firstRatings(cafeNum.getCafeNum());
-
+			
+			for (int i = 0; i<3 ;i++) {
 			// 이미저장
-			if (multi.getFilesystemName("mainImg") != null) {
-				vo.setCafeNum(cafeNum.getCafeNum());
-				vo.setCafeimgRoute(multi.getFilesystemName("mainImg"));
-				cs.addCafeImg(vo);
+				if (multi.getFilesystemName("img"+i) != null) {
+					vo.setCafeNum(cafeNum.getCafeNum());
+					vo.setCafeimgRoute(multi.getFilesystemName("img"+i));
+					cs.addCafeImg(vo);
+				}
 			}
-			if (multi.getFilesystemName("subImg1") != null) {
-				vo.setCafeNum(cafeNum.getCafeNum());
-				vo.setCafeimgRoute(multi.getFilesystemName("subImg1"));
-				cs.addCafeImg(vo);
-			}
-			if (multi.getFilesystemName("subImg2") != null) {
-				vo.setCafeNum(cafeNum.getCafeNum());
-				vo.setCafeimgRoute(multi.getFilesystemName("subImg2"));
-				cs.addCafeImg(vo);
-			}
+			
+//			if (multi.getFilesystemName("subImg1") != null) {
+//				vo.setCafeNum(cafeNum.getCafeNum());
+//				vo.setCafeimgRoute(multi.getFilesystemName("subImg1"));
+//				cs.addCafeImg(vo);
+//			}
+//			if (multi.getFilesystemName("subImg2") != null) {
+//				vo.setCafeNum(cafeNum.getCafeNum());
+//				vo.setCafeimgRoute(multi.getFilesystemName("subImg2"));
+//				cs.addCafeImg(vo);
+//			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return "/cafeListForm.do";
+		return "cafeListForm.do";
 
 	}
 

@@ -62,5 +62,10 @@ public class ItemServiceMybatis implements ItemService{
 		return mapper.etcTopList();
 	}
 
+	@Override
+	public List<ItemVO> etcs() {
+		return mapper.etcList();
+	}
+
 	
 }

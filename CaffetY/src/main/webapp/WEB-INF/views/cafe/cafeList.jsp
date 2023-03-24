@@ -136,51 +136,6 @@ button {
 	</div>
 </div>
 
-<div class="section sec-testimonials bg-light">
-	<div class="container">
-		<div class="row mb-5 align-items-center">
-			<div class="col-md-6">
-				<h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">Comments</h2>
-			</div>
-			<div class="col-md-6 text-md-end">
-				<div id="testimonial-nav">
-					<span class="prev" data-controls="prev">Prev</span> <span
-						class="next" data-controls="next">Next</span>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-4"></div>
-		</div>
-		<div class="testimonial-slider-wrap">
-			<div class="testimonial-slider">
-				<!-- 여기서 반복 최신 댓글 10개 -->
-				<div class="item">
-					<div class="testimonial">
-						<img src="images/person_1-min.jpg" alt="Image"
-							class="img-fluid rounded-circle w-25 mb-4">
-						<h3 class="h5 text-primary">member_id</h3>
-						<p class="text-black-50">평점</p>
-
-						<p>comment comment comment comment comment comment comment
-							comment comment comment comment comment comment comment comment
-							comment comment comment comment comment comment comment comment
-							comment comment comment comment comment comment comment comment
-							comment comment comment comment comment comment comment comment
-							comment comment comment</p>
-
-					</div>
-				</div>
-
-
-
-
-			</div>
-		</div>
-	</div>
-</div>
-
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a733aaef61d32ce74673c3da316fefe&libraries=services"></script>
 <script>

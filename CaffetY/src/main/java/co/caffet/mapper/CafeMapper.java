@@ -33,6 +33,18 @@ public interface CafeMapper {
 
 	public int checkRatings(CafeVO vo);
 
+	public List<CafeVO> searchCafeImg(int cafeNum);
+
+	public void updateCafeImgDelete(int cafeimgNum);
+
+	public void updateCafeImg(CafeVO vo);
+
+	public void deleteCafe(int cafeNum);
+
+	public void deleteRatings(int cafeNum);
+
+	public void deleteCafeImg(int cafeNum);
+
 	
 
 }
