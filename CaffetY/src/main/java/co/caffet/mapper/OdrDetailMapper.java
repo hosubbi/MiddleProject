@@ -1,5 +1,8 @@
 package co.caffet.mapper;
 
-public interface OdrDetailMapper {
+import co.caffet.vo.OdrDetailVO;
 
+public interface OdrDetailMapper {
+	
+	public int detailOdr(OdrDetailVO vo);
 }

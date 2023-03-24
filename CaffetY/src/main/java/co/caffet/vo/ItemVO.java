@@ -14,4 +14,6 @@ public class ItemVO {
 	private Date itemJoindate;
 	private Date itemMdate;
 	private String itemDiv;
+	
+	
 }

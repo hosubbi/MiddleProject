@@ -48,13 +48,14 @@ import co.caffet.controller.ModifyMemberFormControl;
 import co.caffet.controller.ModifymemberControl;
 import co.caffet.controller.MypageControl;
 import co.caffet.controller.NoticeControl;
+import co.caffet.controller.OdrDetailControl;
+import co.caffet.controller.OdrDetailFormControl;
 import co.caffet.controller.OrderlistControl;
 import co.caffet.controller.RatingsModifyControll;
 import co.caffet.controller.ReservelistControl;
 import co.caffet.controller.SearchCafeControl;
 import co.caffet.controller.ToyListControl;
 import co.caffet.controller.modifyCommentControl;
-
 
 public class FrontController extends HttpServlet {
 
@@ -67,8 +68,8 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
-		
-		//member
+
+		// member
 		map.put("/login.do", new LoginControl());
 		map.put("/memberAdd.do", new MemberAddControl());
 		map.put("/logout.do", new LogoutControl());
@@ -76,10 +77,17 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyMember.do", new ModifymemberControl());
 		map.put("/modifyMemberForm.do", new ModifyMemberFormControl());
 		map.put("/deleteMember.do", new DeleteMemberControl());
-		map.put("/orderList.do", new OrderlistControl());
-		map.put("/reserveList.do", new ReservelistControl());
 		
-		//cafe
+
+		// order
+		map.put("/orderList.do", new OrderlistControl());
+		map.put("/odrDetail.do", new OdrDetailControl());
+		map.put("/odrDetailForm.do", new OdrDetailFormControl());
+
+		// reserve
+		map.put("/reserveList.do", new ReservelistControl());
+
+		// cafe
 		map.put("/searchCafe.do", new SearchCafeControl());
 		map.put("/cafeListForm.do", new CafeListForm());
 		map.put("/cafeInfo.do", new CafeInfo());
@@ -88,8 +96,8 @@ public class FrontController extends HttpServlet {
 		map.put("/ratingsModify.do", new RatingsModifyControll());
 		map.put("/modifyCafe.do", new ModifyCafeControl());
 		map.put("/cafeModify.do", new CafeModifyControl());
-		
-		//product
+
+		// product
 		map.put("/notice.do", new NoticeControl());
 		map.put("/toy.do", new ToyListControl());
 		map.put("/toyInfo.do", new ItemInfoControl());
@@ -100,9 +108,8 @@ public class FrontController extends HttpServlet {
 		map.put("/itemDelete.do", new ItemDeleteControl());
 		map.put("/dogfood.do", new FoodListControl());
 		map.put("/etc.do", new EtcListControl());
-		
-		
-		//board
+
+		// board
 		map.put("/boardPlayList.do", new BoardPlayListControl());
 		// 게시글보는화면
 		map.put("/boardPlayView.do", new BoardPlayView());
@@ -120,13 +127,13 @@ public class FrontController extends HttpServlet {
 		map.put("/boardPlayUpdate.do", new BoardPlayUpdateControl());
 		// 놀이터삭제화면
 		map.put("/boardPlayRemove.do", new BoardPlayRemoveControl());
-		
-		//댓글등록	
+
+		// 댓글등록
 		map.put("/addComment.do", new AddCommentControl());
-		//댓글수정
+		// 댓글수정
 		map.put("/modifyComment.do", new modifyCommentControl());
-		
-	//-----------------------------------------------------------------------------------//
+
+		// -----------------------------------------------------------------------------------//
 
 		// 2.Q&A
 		// QnA목록리스트
@@ -139,7 +146,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardQnAAddForm.do", new BoardQnAAddFormControl());
 //		//QnA글조회화면
 		map.put("/boardQnASearchForm.do", new BoardQnASearchFormControl());
-		
+
 	}
 
 	@Override
@@ -157,8 +164,7 @@ public class FrontController extends HttpServlet {
 		Control command = map.get(page);
 		System.out.println(command);
 		String viewPage = command.exec(req, resp); // product/productList.tiles
-		
-		
+
 		if (viewPage.endsWith(".jsp")) {
 			viewPage = "/WEB_INF/views/" + viewPage; // memberList.do
 //		}else if(viewPage.endsWith(".tiles")){  //members.do

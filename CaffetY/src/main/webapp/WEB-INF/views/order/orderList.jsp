@@ -51,8 +51,8 @@
           <td>${list.memberId }</td>
           <td>${list.itemName }</td>
           <td>${list.orderCount }</td>
-          <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${list.orderJoindate }"/></td>
-          <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${list.orderMdate }"/></td>
+          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.orderJoindate }"/></td>
+          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.orderMdate }"/></td>
       	</tr>
    		</c:forEach>
     </tbody>

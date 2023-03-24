@@ -2,8 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 
+</head>
 
+<body>
 <div class="site-mobile-menu site-navbar-target">
 	<div class="site-mobile-menu-header">
 		<div class="site-mobile-menu-close">
@@ -17,8 +25,9 @@
 	<div class="container">
 		<div class="menu-bg-wrap">
 			<div class="site-navigation">
-				<a href="main.do" class="logo m-0 float-start">1조 No.1 Caffet</a>
-
+			<div id="fonts">
+				<a href="main.do" class="logo m-0 float-start">Caffet</a>
+			</div>
 				<ul
 					class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
 					<li class="active"><a href="main.do">Home</a></li>
@@ -215,8 +224,8 @@ String idd = (String) request.getAttribute("id");
 	});
 </script>
 
-
-
+</body>
+</html>
 
 
 

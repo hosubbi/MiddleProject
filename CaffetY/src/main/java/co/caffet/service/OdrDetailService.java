@@ -1,5 +1,8 @@
 package co.caffet.service;
 
-public interface OdrDetailService {
+import co.caffet.vo.OdrDetailVO;
 
+public interface OdrDetailService {
+	 
+	public boolean orderDtl(OdrDetailVO vo);
 }

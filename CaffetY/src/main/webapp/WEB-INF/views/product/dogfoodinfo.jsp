@@ -47,10 +47,10 @@
 							 <input type="text" name="sum" size="13" readonly>
 						 </form>
 					</div>
-					<a onclick="location.href='toyInfo.do?itemNum=${topList.itemNum}'"
+					<a onclick="location.href='odrDetailForm.do'"
 						class="btn btn-primary py-2 px-3"
-						style="background: rgb(226, 175, 255);">바로구매</a> <a
-						onclick="location.href='toyInfo.do?itemNum=${topList.itemNum}'"
+						style="background: rgb(226, 175, 255);">바로구매</a>
+						<a onclick="location.href='toyInfo.do?itemNum=${topList.itemNum}'"
 						class="btn btn-primary py-2 px-3"
 						style="background: rgba(255, 163, 202, 0.897);">장바구니</a>
 				</div>
