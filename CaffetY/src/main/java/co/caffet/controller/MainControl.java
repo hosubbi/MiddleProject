@@ -19,6 +19,7 @@ public class MainControl implements Control {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 
 		String all = "all";
+		
 		CafeService service = new CafeServiceMybatis();
 		List<CafeVO> list = service.cafeList(all);
 

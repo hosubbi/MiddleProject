@@ -13,6 +13,6 @@ public class CommentVO {
 	private Date commentJoindate;
 	private Date commentMdate;
 	
-	
+	//private String memberId;
 	private String replyId;
 }

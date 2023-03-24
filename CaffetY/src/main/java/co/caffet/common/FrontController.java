@@ -33,6 +33,7 @@ import co.caffet.controller.CafeModifyControl;
 import co.caffet.controller.DeleteMemberControl;
 import co.caffet.controller.EtcListControl;
 import co.caffet.controller.FoodListControl;
+import co.caffet.controller.GetCommentJson;
 import co.caffet.controller.ItemDeleteControl;
 import co.caffet.controller.ItemInfoControl;
 import co.caffet.controller.ItemInsertControl;
@@ -125,6 +126,8 @@ public class FrontController extends HttpServlet {
 		map.put("/addComment.do", new AddCommentControl());
 		//댓글수정
 		map.put("/modifyComment.do", new modifyCommentControl());
+		// 댓글번호 -> 댓글정보 가지고 오는 컨트롤. (json데이터포맷)
+		map.put("/getCommentJson.do", new GetCommentJson());
 		
 	//-----------------------------------------------------------------------------------//
 
@@ -133,9 +136,9 @@ public class FrontController extends HttpServlet {
 		map.put("/boardQnAList.do", new BoardQnAListControl());
 		// 게시글보는화면
 		map.put("/boardQnAView.do", new BoardQnAView());
-//		//게시글등록화면
+		//게시글등록화면
 		map.put("/boardQnAAdd.do", new BoardQnAAddControl());
-//		//게시글등록처리
+		//게시글등록처리
 		map.put("/boardQnAAddForm.do", new BoardQnAAddFormControl());
 //		//QnA글조회화면
 		map.put("/boardQnASearchForm.do", new BoardQnASearchFormControl());

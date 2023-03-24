@@ -16,6 +16,21 @@
 		insert into comments(board_num,comment_num,comment_content,comment_joindate,comment_mdate,reply_id)
 		values(#{boardNum},comment_num.nextval,#{commentContent},sysdate,sysdate,#{replyId})
 	</update>
-
+	
+	<update id="modifyComments" parameterType="co.caffet.vo.CommentVO">
+	update comments
+	set comment_content ='#{commentContent}' ,comment_mdate=sysdate
+	where board_num=#{boardNum};
+	</update>
+	
+	<!--  <delete id="deleteComments" parameterType="co.caffet.vo.CommentVO">
+	delete from comments where 
+	</delete>-->
+	
+	
+	
+	<select id="selectComment" parameterType="int" resultType="co.caffet.vo.CommentVO">
+		select * from comments where  comment_num = #{cNum}
+	</select>
 
 </mapper>

@@ -24,4 +24,15 @@ public class CommentsServiceMybatis implements CommentsService {
 		return r == 1;
 	}
 
+	@Override
+	public boolean modifyComments(CommentVO cvo) {
+		int r = mapper.modifyComments(cvo);
+		return r == 1;
+	}
+
+	@Override
+	public CommentVO getComment(int cNum) {
+		return mapper.selectComment(cNum);
+	}
+
 }

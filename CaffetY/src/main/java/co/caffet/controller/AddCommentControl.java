@@ -48,7 +48,7 @@ public class AddCommentControl implements Control {
 		List<CommentVO> cvo = service2.getComments(num);
 		System.out.println("-----------------------------");
 		System.out.println(cvo);
-		request.setAttribute("cvo", cvo);
+		request.setAttribute("list", cvo);
 		return "board/boardPlayView.tiles";
 
 	}
