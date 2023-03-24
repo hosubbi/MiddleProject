@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.caffet.common.DataSource;
-import co.caffet.mapper.BoardMapper;
 import co.caffet.mapper.CommentsMapper;
 import co.caffet.vo.CommentVO;
 
@@ -25,14 +24,19 @@ public class CommentsServiceMybatis implements CommentsService {
 	}
 
 	@Override
-	public boolean modifyComments(CommentVO cvo) {
-		int r = mapper.modifyComments(cvo);
-		return r == 1;
+	public CommentVO modifyComments(CommentVO cvo) {
+		
+		return mapper.modifyComments(cvo);
 	}
 
 	@Override
 	public CommentVO getComment(int cNum) {
 		return mapper.selectComment(cNum);
 	}
+
+
+	
+
+
 
 }

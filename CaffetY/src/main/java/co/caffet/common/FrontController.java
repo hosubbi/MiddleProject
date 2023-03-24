@@ -157,6 +157,7 @@ public class FrontController extends HttpServlet {
 		System.out.println(context);
 		System.out.println("요청 do: " + page);
 
+		
 		Control command = map.get(page);
 		System.out.println(command);
 		String viewPage = command.exec(req, resp); // product/productList.tiles

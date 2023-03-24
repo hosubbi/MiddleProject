@@ -19,8 +19,8 @@
 	
 	<update id="modifyComments" parameterType="co.caffet.vo.CommentVO">
 	update comments
-	set comment_content ='#{commentContent}' ,comment_mdate=sysdate
-	where board_num=#{boardNum};
+	set comment_content = #{commentContent} ,comment_mdate = sysdate
+	where comment_num=#{commentNum}
 	</update>
 	
 	<!--  <delete id="deleteComments" parameterType="co.caffet.vo.CommentVO">

@@ -19,23 +19,24 @@
                             작성일&nbsp;
                             <a><fmt:formatDate value="${vo.boardJoindate }" pattern="yyyy-MM-dd HH:mm:ss"/></a>
                         </p>
-                          <h2 class="section-heading">${vo.boardTitle }</h2>
-                        <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>
+                        <p>조회수 ${vo.boardCount }</p>
+                        <hr></hr>
+                         <h2 class="section-heading">${vo.boardTitle }</h2>
                         <p><span class="caption text-muted"></p>
                        	${vo.boardContent } </span>
                       	<p></p>
-                      	
-                      	
-                      	<p>조회수 ${vo.boardCount }</p>
-       <!-- 
-       <table>
-        <td colspan="3" align="center">     
-      <button id="modBtn">수정</button>
-      <button id="delBtn">삭제</button>
-       </td>
-		</table>   
- 		-->
-<!-- <form id="myFrm" action="boardPlayUpdateForm.do">
+
+						<table>
+							<td colspan="3" align="right">
+								<button id="modBtn" >수정</button>
+								<button id="delBtn">삭제</button>
+							</td>
+						</table>
+
+
+
+
+						<!-- <form id="myFrm" action="boardPlayUpdateForm.do">
 
 </form>		
 <script>
@@ -73,11 +74,10 @@
                       	 
                       	
                  
-        <!--참고: https://cameldev.tistory.com/63 댓글코멘트창 -->   
-       
+       <!--참고: https://cameldev.tistory.com/63 댓글코멘트창 -->
        <!-- 댓글등록창 -->
+       <hr></hr>
        <h3>Comments:</h3>
-       <hr></hr>     
        <div class="card-body">
  			<form class="form-horizontal">
    				<div class="row">

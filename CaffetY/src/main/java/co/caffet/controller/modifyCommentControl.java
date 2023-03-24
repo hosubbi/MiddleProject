@@ -15,8 +15,20 @@ public class modifyCommentControl implements Control {
 		String commentNum = request.getParameter("cNo");
 		String comment = request.getParameter("comment");
 		
+		System.out.println(comment);
+		System.out.println(commentNum);
+		
 		CommentsService service =new CommentsServiceMybatis();
-		CommentVO cvo = service.modifyComments(Integer.parseInt(commentNum));
+		CommentVO cvo = new CommentVO();
+		
+		
+		cvo.setCommentNum(Integer.parseInt(commentNum));
+		cvo.setCommentContent(comment);
+		
+		System.out.println(cvo);
+		
+		
+		service.modifyComments(cvo);
 		request.setAttribute("cvo", cvo);
 		
 		return "board/boardPlayView.tiles";

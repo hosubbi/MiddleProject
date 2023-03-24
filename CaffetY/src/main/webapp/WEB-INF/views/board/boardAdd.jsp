@@ -10,11 +10,14 @@
     .textareainfo{
     	width : 100%
     }
+    
+  
     </style>
 <!-- 게시글 등록작성화면 -->
 <div class="section">
 		<div class="container">
 			<div class="row">
+			
 				<div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
 					<div class="contact-info">
 								
@@ -27,7 +30,7 @@
 						<div class="row" >
 						<h2><bold>글쓰기</bold></h2>
 							<div class="col-6 mb-3">
-								<input id="memberId" name = "memberId"  type="text" class="form-control" placeholder="작성자" >
+								<input id="memberId" name = "memberId"  type="text" class="form-control" placeholder="작성자">
 							</div>
 							<div class="col-6 mb-3">
 								<input name="boardDiv" type="text" class="form-control"   value="${info }" >

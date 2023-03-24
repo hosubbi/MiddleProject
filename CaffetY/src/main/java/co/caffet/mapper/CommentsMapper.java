@@ -11,7 +11,7 @@ public interface CommentsMapper {
 	//댓글 등록
 	public int addComments(CommentVO cvo);
 	//댓글 수정
-	public int modifyComments(CommentVO cvo);
+	public CommentVO modifyComments(CommentVO cvo);
 	//댓글 조회(한건)
 	public CommentVO selectComment(int cNum);
 }

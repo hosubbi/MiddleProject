@@ -12,9 +12,10 @@ public interface CommentsService {
 	public boolean addComments(CommentVO cvo);
 
 	// 댓글 수정
-	public boolean modifyComments(CommentVO cvo);
 
 	// 댓글 조회(한건)
 	public CommentVO getComment(int cNum);
+
+	public CommentVO modifyComments(CommentVO cvo);
 
 }
